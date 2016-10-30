@@ -92,7 +92,7 @@ Check log files
 Be shure your python version is >= 3.x
 ```bash
 $ source /home/rss/rssenv/bin/activate
-$ /home/rss/spider_rss.py -v -w "myparsername"
+$ python /home/rss/spider_rss.py -v -w "myparsername"
 $ deactivate
 ```
 
