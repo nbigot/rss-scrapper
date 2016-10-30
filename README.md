@@ -21,6 +21,12 @@ Download all the files from this repository.
 
 Copy them into your installation directory, for example */home/rss/*
 
+Run script to create python virtual env:
+
+```bash
+$ sudo /home/rss/install_env.sh
+```
+
 Run configuration script:
 
 ```bash
