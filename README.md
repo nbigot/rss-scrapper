@@ -31,13 +31,13 @@ $ sudo systemctl restart nginx
 
 #### Summary list of directories to look at:
 
-| **What**          | **Directory**                      |
-|-------------------|------------------------------------|
-|source code        |_/home/rss/_                        |
-|sites parsers      |_/home/rss/parsers/_                |
-|produced xml feeds |_/var/www/rss/<sitename>/_          |
-|intermediate datas |_/var/spiders/rss/data/<sitename>/_ |
-|log files          |_/var/log/spiders/rss/<sitename>/_  |
+| **What**          | **Directory**                        |
+|-------------------|--------------------------------------|
+|source code        |_/home/rss/_                          |
+|sites parsers      |_/home/rss/parsers/_                  |
+|produced xml feeds |_/var/www/rss/yoursitename/_          |
+|intermediate datas |_/var/spiders/rss/data/yoursitename/_ |
+|log files          |_/var/log/spiders/rss/yoursitename/_  |
 
 
 #### Run in production
