@@ -58,6 +58,7 @@ def build_feed(feed_config, feed_def, articles):
             <updated>{updated}</updated>
             <title>{title}</title>
             <link rel="alternate" type="text/html" href="{link}"/>
+            <link rel="enclosure" type="{enclosure_type}" href="{enclosure_href}" length="{enclosure_length}"/>
             <id>{id}</id>
             <author>
                 <name>{author}</name>
@@ -93,5 +94,6 @@ def build_feed(feed_config, feed_def, articles):
     feed_render = feed_render.replace('<icon></icon>', '')
     feed_render = feed_render.replace('<logo></logo>', '')
     feed_render = feed_render.replace('<link type="text/html" href="" rel="alternate"/>', '')
+    feed_render = feed_render.replace('<link rel="enclosure" type="" href="" length=""/>', '')
 
     return feed_render
