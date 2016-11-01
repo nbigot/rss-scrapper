@@ -79,17 +79,18 @@ def parse_article(article, response_text, logger):
     except:
         pass
     article['article_format'] = None
-    # try:
-    # content_article = sel.css('article .content-article')
     content_article = sel.css('.content-article')
     if content_article:
         article['chapeau_article'] = response_extract(content_article, 'h2.chapo-article::text', join_str=' ')
         article['broken_html'] = content_article.extract_first()
         content_html = u''
         soup = BeautifulSoup(article['broken_html'], 'html.parser')
-        for p in soup.find_all('p'):
-            if p.attrs and 'itemprop' in p.attrs and p.attrs['itemprop'] == 'articleBody':
-                content_html += u'&lt;p&gt;' + escape(p.text) + u'&lt;/p&gt;'
+        article_body = soup.findAll(attrs={"itemprop": "articleBody"})
+        for elem in article_body:
+            if elem.name in ['h1', 'h2', 'h3']:
+                content_html += u'&lt;h2&gt;' + escape(elem.text.strip()) + u'&lt;/h2&gt;'
+            elif elem.name == 'p':
+                content_html += u'&lt;p&gt;' + escape(elem.text.strip()) + u'&lt;/p&gt;'
         article['content_html'] = content_html
         article['article_format'] = 1
     else:
@@ -100,9 +101,12 @@ def parse_article(article, response_text, logger):
             article['broken_html'] = content_article.extract_first()
             content_html = u''
             soup = BeautifulSoup(article['broken_html'], 'html.parser')
-            for p in soup.find_all('p'):
-                if p.attrs and 'itemprop' in p.attrs and p.attrs['itemprop'] == 'articleBody':
-                    content_html += u'&lt;p&gt;' + escape(p.text) + u'&lt;/p&gt;'
+            article_body = soup.findAll(attrs={"itemprop": "articleBody"})[0]
+            for elem in article_body:
+                if elem.name in ['h1', 'h2', 'h3']:
+                    content_html += u'&lt;h2&gt;' + escape(elem.text.strip()) + u'&lt;/h2&gt;'
+                elif elem.name == 'p':
+                    content_html += u'&lt;p&gt;' + escape(elem.text.strip()) + u'&lt;/p&gt;'
             article['content_html'] = content_html
             article['article_format'] = 2
         else:
@@ -118,6 +122,10 @@ def parse_article(article, response_text, logger):
     published = datetime.fromtimestamp(mktime(article['feed_original']['published_parsed'])).isoformat()
     if version_info < (3, 0):
         published = unicode(published)
+    try:
+        enclosure = next((link for link in article['feed_original']['links'] if link['rel'] == 'enclosure'), {})
+    except:
+        enclosure = {}
     article['rss'] = {
         'published': published,
         'updated': article.get('date_modified', ''),
@@ -125,7 +133,10 @@ def parse_article(article, response_text, logger):
         'link': article['feed_original']['link'],
         'id': article['feed_original']['link'],
         'author': article['feed_original']['author'],
-        'content_html': article['content_html']
+        'content_html': article['content_html'],
+        'enclosure_type': enclosure.get('type', ''),
+        'enclosure_href': enclosure.get('href', ''),
+        'enclosure_length': enclosure.get('length', ''),
     }
 
     return True, need_serialize
