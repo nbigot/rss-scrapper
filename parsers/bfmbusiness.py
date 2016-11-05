@@ -13,7 +13,7 @@ config = {
         {
             'url': 'http://bfmbusiness.bfmtv.com/rss/info/flux-rss/flux-toutes-les-actualites/',
             'name': 'rss_une_titres.xml',
-            'icon': '',
+            'icon': 'http://static.bfmtv.com/ressources/favicon/bfmtv/favicon.ico',
             'logo': '',
         },
     ],
