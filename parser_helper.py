@@ -70,7 +70,7 @@ def build_feed(feed_config, feed_def, articles):
 
     if articles:
         if len(articles) == 1:
-            feed_articles = articles[0]
+            feed_articles = article_template.format(**articles[0]['rss'])
         else:
             feed_articles = u"\n".join([article_template.format(**article['rss']) for article in articles])
     else:
