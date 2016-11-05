@@ -45,6 +45,10 @@ def parse_article(article, response_text, logger):
     published = article['feed_original'].get('updated', '')
     if version_info < (3, 0):
         published = unicode(published)
+    try:
+        enclosure = next((link for link in article['feed_original']['links'] if link['rel'] == 'enclosure'), {})
+    except:
+        enclosure = {}
     article['rss'] = {
         'published': published,
         'updated': article.get('date_modified', ''),
@@ -52,6 +56,9 @@ def parse_article(article, response_text, logger):
         'link': article['feed_original'].get('link', article['url']),
         'id': article['feed_original'].get('id', article['url']),
         'author': article['feed_original'].get('author', ''),
-        'content_html': article['content_html']
+        'content_html': article['content_html'],
+        'enclosure_type': enclosure.get('type', ''),
+        'enclosure_href': enclosure.get('href', ''),
+        'enclosure_length': enclosure.get('length', ''),
     }
     return parsed_succeed, need_serialize
