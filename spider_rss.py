@@ -26,9 +26,9 @@ import importlib
 
 # region globals
 if platform == "win32":
-    LOG_DIRECTORY = 'C:\\dev\\rss_scrapper\\rss\\log\\{site}\\'
-    DATA_DIRECTORY = 'C:\\dev\\rss_scrapper\\rss\\data\\{site}\\'
-    FEED_DIRECTORY = 'C:\\dev\\rss_scrapper\\rss\\feed\\{site}\\'
+    LOG_DIRECTORY = 'C:\\dev\\rss-scrapper\\rss\\log\\{site}\\'
+    DATA_DIRECTORY = 'C:\\dev\\rss-scrapper\\rss\\data\\{site}\\'
+    FEED_DIRECTORY = 'C:\\dev\\rss-scrapper\\rss\\feed\\{site}\\'
 else:
     LOG_DIRECTORY = '/var/log/spiders/rss/{site}/'
     DATA_DIRECTORY = '/var/spiders/rss/data/{site}/'
