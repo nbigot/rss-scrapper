@@ -193,7 +193,12 @@ def read_feed(feed_url, site_params, run_args):
                 'Accept-Encoding': 'gzip,deflate'
             }
 
-            response = requests.get(url, headers=headers)
+            try:
+                response = requests.get(url, headers=headers)
+            except:
+                articles_in_error.append(url)
+                logger.exception('Error while downloading url {}'.format(url))
+                continue
             sleep(site_params['delay'])
             if response.status_code != 200:
                 continue
