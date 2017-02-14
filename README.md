@@ -59,6 +59,14 @@ If you don't want to by a domain name you will have to modify the script _config
 $ sudo cp /home/rss/logrotate-rss.conf /etc/logrotate.d/rss
 ```
 
+
+##### Auto delete old data files
+
+```bash
+$ sudo find /var/spiders/rss/data/* -mtime +30 -type f -delete
+```
+
+
 ##### Setup Update your rss feeds
 
 Auto update your rss feeds
