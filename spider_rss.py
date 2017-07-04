@@ -115,7 +115,7 @@ def prepare_params(site_config, parse_article_callback, feed_directory, log_dire
 def read_feed(feed_url, site_params, run_args):
     feed_info = feedparser.parse(feed_url)
 
-    if not feed_info or feed_info.status == 500:
+    if not feed_info or feed_info.get('status', 500) == 500:
         # nothing to process
         return None
 
