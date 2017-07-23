@@ -43,6 +43,10 @@ do
     echo "        root $ROOT_WWW_DIR$parser_name/;" >> $NGINX_CONFIG_FILE
     echo "        autoindex on;" >> $NGINX_CONFIG_FILE
     echo "        autoindex_localtime on;" >> $NGINX_CONFIG_FILE
+    echo "        gzip on;" >> $NGINX_CONFIG_FILE
+    echo "        gzip_vary on;" >> $NGINX_CONFIG_FILE
+    echo "        gzip_min_length 1000;" >> $NGINX_CONFIG_FILE
+    echo "        gzip_types text/plain text/xml application/xml application/json" >> $NGINX_CONFIG_FILE
     echo "    }" >> $NGINX_CONFIG_FILE
     echo "}" >> $NGINX_CONFIG_FILE
     echo "" >> $NGINX_CONFIG_FILE
