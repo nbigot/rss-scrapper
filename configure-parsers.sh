@@ -5,7 +5,7 @@ ROOT_WWW_DIR="/var/www/rss/"
 ROOT_DATA_DIR="/var/spiders/rss/data/"
 ROOT_LOG_DIR="/var/log/spiders/rss/"
 NGINX_CONFIG_FILE="$SOURCE_DIR/nginx-rss.conf"
-NGINX_DOMAIN="rss-news.top"
+NGINX_DOMAIN="your-own-domain.com"
 BASH_SCRIPT_RUN_PARSERS="$SOURCE_DIR/run-parsers.sh"
 
 valid_parser_files_concated=$(find $PARSERS_DIR -type f -name "*.py" | grep -v init | grep -v default)
