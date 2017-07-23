@@ -44,8 +44,7 @@ Run configuration script:
 $ sudo vi /home/rss/configure-parsers.sh
 # change the value of NGINX_DOMAIN
 $ sudo /home/rss/configure-parsers.sh
-$ cp /home/rss/nginx-rss.conf /etc/nginx/conf.d/nginx-rss.conf
-$ sudo systemctl restart nginx
+$ sudo /home/rss/configure_nginx.sh
 ```
 
 #### Summary list of directories to look at:
