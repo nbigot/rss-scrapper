@@ -21,6 +21,17 @@ Download all the files from this repository.
 
 Copy them into your installation directory, for example */home/rss/*
 
+```bash
+$ cd /home/
+$ git clone git@github.com:nbigot/rss-scrapper.git rss
+```
+
+Make shell files executables:
+
+```bash
+$ chmod u+x /home/rss/*.sh
+```
+
 Run script to create python virtual env:
 
 ```bash
