@@ -46,7 +46,7 @@ do
     echo "        gzip on;" >> $NGINX_CONFIG_FILE
     echo "        gzip_vary on;" >> $NGINX_CONFIG_FILE
     echo "        gzip_min_length 1000;" >> $NGINX_CONFIG_FILE
-    echo "        gzip_types text/plain text/xml application/xml application/json" >> $NGINX_CONFIG_FILE
+    echo "        gzip_types text/plain text/xml application/xml application/json;" >> $NGINX_CONFIG_FILE
     echo "    }" >> $NGINX_CONFIG_FILE
     echo "}" >> $NGINX_CONFIG_FILE
     echo "" >> $NGINX_CONFIG_FILE
