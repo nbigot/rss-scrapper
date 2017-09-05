@@ -17,19 +17,19 @@ config = {
         {
             'url': 'http://syndication.lesechos.fr/rss/rss_une_titres.xml',
             'name': 'rss_une_titres.xml',
-            'icon': 'http://lesechos.rss.domisiladore.com/favicon.ico',
+            'icon': 'https://assets.lesechos.com/lesechos/pics-news/images/favicons/ico_echos.ico',
             'logo': '',
         },
         {
             'url': 'http://www.lesechos.fr/rss/rss_articles_journal.xml',
             'name': 'rss_articles_journal.xml',
-            'icon': 'http://lesechos.rss.domisiladore.com/favicon.ico',
+            'icon': 'https://assets.lesechos.com/lesechos/pics-news/images/favicons/ico_echos.ico',
             'logo': '',
         },
         {
             'url': 'http://syndication.lesechos.fr/rss/rss_plus_consultes.xml',
             'name': 'rss_plus_consultes.xml',
-            'icon': 'http://lesechos.rss.domisiladore.com/favicon.ico',
+            'icon': 'https://assets.lesechos.com/lesechos/pics-news/images/favicons/ico_echos.ico',
             'logo': '',
         },
     ],

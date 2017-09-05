@@ -13,7 +13,7 @@ config = {
         {
             'url': 'http://www.lefigaro.fr/rss/figaro_actualites.xml',
             'name': 'rss_une_titres.xml',
-            'icon': 'http://a.f1g.fr/f/img/favicon/favicon-32x32.png?v20170831115844',
+            'icon': 'http://a.f1g.fr/assets-img/i/f/favicon.ico',
             'logo': '',
         },
     ],
