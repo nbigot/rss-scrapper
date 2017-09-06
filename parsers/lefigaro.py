@@ -34,7 +34,10 @@ def parse_article(article, response_text, logger):
         pass
     try:
         content_html = u''
-        article_body = soup.findAll(attrs={"itemprop": "articleBody"})[0]
+        try:
+            article_body = soup.findAll(attrs={"itemprop": "articleBody"})[0]
+        except:
+            article_body = soup.findAll(attrs={"class": "fig-content__body"})[0]
         for elem in article_body:
             if elem.name in ['h1', 'h2', 'h3']:
                 content_html += u'&lt;h2&gt;' + escape(elem.text.strip()) + u'&lt;/h2&gt;'
