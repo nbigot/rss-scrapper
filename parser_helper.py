@@ -78,7 +78,7 @@ def build_feed(feed_config, feed_def, articles):
 
     f = feed_def['feed']
     feed_render = feed_template.format(
-        feed_title=f['title'],
+        feed_title=f.get('title', ''),
         feed_subtitle=f.get('subtitle', ''),
         feed_lang=f.get('lang', f.get('language', 'en-US')),
         feed_icon=feed_config.get('icon', ''),
@@ -90,6 +90,7 @@ def build_feed(feed_config, feed_def, articles):
     )
 
     # remove empty fields if any
+    feed_render = feed_render.replace('<title></title>', '')
     feed_render = feed_render.replace('<subtitle></subtitle>', '')
     feed_render = feed_render.replace('<icon></icon>', '')
     feed_render = feed_render.replace('<logo></logo>', '')
